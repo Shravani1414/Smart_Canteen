@@ -1,0 +1,13 @@
+.btn {
+  padding: 0.5rem 1rem;              /* px-4 py-2 */
+  border-radius: 1rem;               /* rounded-2xl */
+  background-color: #2563eb;         /* bg-blue-600 */
+  color: white;                      /* text-white */
+  transition: background-color 0.2s; /* transition */
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #1d4ed8;         /* hover:bg-blue-700 */
+}

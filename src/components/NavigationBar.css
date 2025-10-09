@@ -1,0 +1,26 @@
+/* src/components/NavigationBar.css */
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #1c1919;
+  border-bottom: 1px solid #1b1919;
+  margin-bottom: 20px;
+}
+
+.navbar button {
+  background-color: #11b7e1;
+  color: rgb(24, 23, 23);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #0056b3;
+}

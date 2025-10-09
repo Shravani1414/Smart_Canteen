@@ -1,0 +1,17 @@
+.menu-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.menu-heading {
+  color: #38a8ac;
+  margin-bottom: 40px;
+}
+
+.dish-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
