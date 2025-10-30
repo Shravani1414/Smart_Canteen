@@ -1,35 +1,28 @@
-/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Reset & base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  body {
+    @apply bg-white text-gray-900 font-sans;
+  }
 }
 
-/* Smooth font look */
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f9f9f9; /* fallback bg */
-  color: #212529; /* bootstrap dark */
-  line-height: 1.6;
-}
-
-/* Links */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  color: #0d6efd; /* bootstrap primary */
-}
-
-/* Utility classes (can reuse anywhere) */
-.text-center {
-  text-align: center;
-}
-
-.mt-5 {
-  margin-top: 3rem !important;
+@layer components {
+  .btn-primary {
+    @apply bg-primary-900 text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-primary-900 border border-primary-200 px-4 py-2 rounded-lg font-medium hover:bg-primary-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+  }
 }

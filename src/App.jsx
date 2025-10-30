@@ -1,56 +1,43 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// Note: Ensure all these components are correctly imported using 
-// either named ({ ComponentName }) or default (ComponentName) imports 
-// based on how they are exported in their respective files.
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
 
 // Importing Pages
-import HomePage from "./components/HomePage"; 
-import Menupage1 from "./components/Menupage1";
-import Menupage2 from "./components/Menupage2";
-import LoginPage from "./components/LoginPage"; 
-
-// Importing Components (These should NOT be routes, but we import them 
-// here to ensure they exist and can be used by the pages)
-// If these are exported with 'export const', use named imports:
-// import { Button } from "./components/Button"; 
-// import { Card } from "./components/Card";
-// import { Dishcard } from "./components/Dishcard";
-// import { NavigationBar } from "./components/NavigationBar";
-
-
-import "./App.css";
+import Home from "./pages/Home";
+import Menu from "./pages/Menu";
+import Cart from "./pages/Cart";
+import Payment from "./pages/Payment";
+import QRCode from "./pages/QRCode";
+import History from "./pages/History";
+import LoginPage from "./components/LoginPage";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/*
-          1. The root path should load the LoginPage OR HomePage. 
-             If you want the LoginPage first, use it here.
-        */}
-        <Route path="/" element={<LoginPage />} />
+        {/* Login Route */}
+        <Route path="/login" element={<LoginPage />} />
         
-        {/* 2. Define unique paths for your main pages. 
-             If HomePage is a component used *after* login, 
-             it should have its own path, like /home, but we'll 
-             use a nested structure if needed. 
-             
-             Since your HomePage has navigation, let's assume /home
-        */}
-        <Route path="/home" element={<HomePage />} />
-        
-        {/* 3. Define the two canteen menu routes used in HomePage.jsx */}
-        <Route path="/canteen1" element={<Menupage1 />} />
-        <Route path="/canteen2" element={<Menupage2 />} />
-
-        {/* If you want the HomePage to load when the user is logged in, 
-          you typically replace the <LoginPage /> element with 
-          <HomePage /> element in the root route after login logic is added. 
-          For now, we use a separate /home route to test the structure.
-        */}
-
+        {/* Main App Layout with Sidebar and Header */}
+        <Route path="/*" element={
+          <div className="flex h-screen bg-gray-50">
+            <Sidebar />
+            <div className="flex-1 flex flex-col overflow-hidden lg:ml-64">
+              <Header />
+              <main className="flex-1 overflow-y-auto">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/menu" element={<Menu />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/payment" element={<Payment />} />
+                  <Route path="/qr-code" element={<QRCode />} />
+                  <Route path="/history" element={<History />} />
+                </Routes>
+              </main>
+            </div>
+          </div>
+        } />
       </Routes>
     </BrowserRouter>
   );
